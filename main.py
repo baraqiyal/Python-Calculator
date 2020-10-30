@@ -22,6 +22,11 @@ class Calc(tk.Tk):
             return ttk.Button(self, text=label, width=BUTTON_WIDTH, command=function)\
                 .grid(row=row, column=col,pady=pady,padx=padx,rowspan=rowspan, sticky=tk.N+tk.E+tk.W+tk.S)
 
+        def makebutton(label, function, row, col, padx=BUTTON_PAD, pady=BUTTON_PAD, rowspan=1):
+            btn = ttk.Button(self, text=label, width=BUTTON_WIDTH, command=function)
+            btn.grid(row=row, column=col, pady=pady, padx=padx, rowspan=rowspan, sticky=tk.N + tk.E + tk.W + tk.S)
+            return btn
+
         self.btn7 = makebutton(label="7", function=lambda: self.numberpressed("7"), row=2, col=0)
         self.btn8 = makebutton(label="8", function=lambda: self.numberpressed("8"), row=2, col=1)
         self.btn9 = makebutton(label="9", function=lambda: self.numberpressed("9"), row=2, col=2)
@@ -69,7 +74,7 @@ class Calc(tk.Tk):
         if (symbol.lower() == 'c'):
             self.clear('C')
 
-        if (e.char in "+-/+^"):
+        if (e.char in "+-/*^"):
             self.operationpressed(e.char)
 
         if (e.char.isdigit() or e.char == '.'):
