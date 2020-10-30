@@ -18,9 +18,6 @@ class Calc(tk.Tk):
                                       background="white", font="-family {DejaVu Sans} -size 18")
         self.Display.grid(row=0, column=0, columnspan=5, pady=5, padx=5, sticky=tk.N+tk.E+tk.W+tk.S)
 
-        def makebutton(label, function, row, col, padx=BUTTON_PAD, pady=BUTTON_PAD, rowspan=1):
-            return ttk.Button(self, text=label, width=BUTTON_WIDTH, command=function)\
-                .grid(row=row, column=col,pady=pady,padx=padx,rowspan=rowspan, sticky=tk.N+tk.E+tk.W+tk.S)
 
         def makebutton(label, function, row, col, padx=BUTTON_PAD, pady=BUTTON_PAD, rowspan=1):
             btn = ttk.Button(self, text=label, width=BUTTON_WIDTH, command=function)
